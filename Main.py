@@ -23,7 +23,9 @@ def load_lottieurl(url: str):
     return r.json()
 
 
-lottie_url = "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
+lottie_url = "https://assets8.lottiefiles.com/packages/lf20_5q3dohib.json"
+# "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
+
 lottie_json = load_lottieurl(lottie_url)
 st_lottie(lottie_json, speed=1, height=300, key="initial")
 
