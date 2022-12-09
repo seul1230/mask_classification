@@ -77,7 +77,7 @@ if uploaded_file is not None:
     # png error 발생 -> keras의 image 이용
 
     img = tf.keras.preprocessing.image.load_img(
-        uploaded_file)
+        uploaded_file, target_size=(height, width))
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = img / 255.0
 
