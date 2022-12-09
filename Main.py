@@ -80,10 +80,9 @@ if uploaded_file is not None:
         uploaded_file)
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = img / 255.0
-    plt.imshow(img)
-    plt.title(title_predict(uploaded_file)[0])
-    # fig, ax = plt.subplots(figsize=(3, 3))
-    # ax.imshow(img)
-    # ax.set_title(title_predict(uploaded_file)[0])
-    # plt.axis('off')
-    # st.pyplot(fig)
+
+    fig, ax = plt.subplots(figsize=(3, 3))
+    ax.imshow(img)
+    ax.set_title(title_predict(uploaded_file)[0])
+    plt.axis('off')
+    st.pyplot(fig)
