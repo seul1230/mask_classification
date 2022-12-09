@@ -66,18 +66,27 @@ def title_predict(path):
 
 if uploaded_file is not None:
     if title_predict(uploaded_file)[1] == 1:
-        st.write('## 🙆‍♂️ 마스크를 착용하셨군요!')
+        st.write('---')
+        st.write('### 🙆‍♂️ 마스크를 착용하셨군요!')
     else:
-        st.write('## ❌ 마스크를 착용하지 않으셨군요!')
+        st.write('---')
+        st.write('### ❌ 마스크를 착용하지 않으셨군요!')
 
     # img = cv2.cvtColor(cv2.imread(uploaded_file),cv2.COLOR_BGR2RGB)
     # img = cv2.imread(uploaded_file)
     # png error 발생 -> keras의 image 이용
 
     img = tf.keras.preprocessing.image.load_img(
-        uploaded_file, target_size=(height, width))
-    fig, ax = plt.subplots(figsize=(3, 3))
-    ax.imshow(img)
-    ax.set_title(title_predict(uploaded_file)[0])
-    plt.axis('off')
-    st.pyplot(fig)
+        uploaded_file)
+    img = tf.keras.preprocessing.image.img_to_array(img)
+    img = img / 255.0
+    plt.imshow(img)
+    if pred[0][0] > 0.5:
+        plt.title(f'Without Mask : {pred[0][0]*100 : 0.2f}%')
+    else:
+        plt.title(f'With Mask : {(1-pred[0][0])*100 : 0.2f}%')
+    # fig, ax = plt.subplots(figsize=(3, 3))
+    # ax.imshow(img)
+    # ax.set_title(title_predict(uploaded_file)[0])
+    # plt.axis('off')
+    # st.pyplot(fig)
