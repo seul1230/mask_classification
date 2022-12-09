@@ -95,6 +95,6 @@ if uploaded_file is not None:
         'fontsize': 5,
         'fontweight': 'bold'
     }
-    ax.title(title_predict(uploaded_file)[0], fontdict=title_font)
+    ax.set_title(title_predict(uploaded_file)[0], fontdict=title_font)
     plt.axis('off')
     st.pyplot(fig)
