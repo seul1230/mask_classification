@@ -81,10 +81,7 @@ if uploaded_file is not None:
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = img / 255.0
     plt.imshow(img)
-    if pred[0][0] > 0.5:
-        plt.title(f'Without Mask : {pred[0][0]*100 : 0.2f}%')
-    else:
-        plt.title(f'With Mask : {(1-pred[0][0])*100 : 0.2f}%')
+    plt.title(title_predict(uploaded_file)[0])
     # fig, ax = plt.subplots(figsize=(3, 3))
     # ax.imshow(img)
     # ax.set_title(title_predict(uploaded_file)[0])
