@@ -77,11 +77,11 @@ if uploaded_file is not None:
     # png error 발생 -> keras의 image 이용
 
     img = tf.keras.preprocessing.image.load_img(
-        uploaded_file, target_size=(height, width))
+        uploaded_file)
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = img / 255.0
 
-    fig, ax = plt.subplots(figsize=(3, 3))
+    fig, ax = plt.subplots(figsize=(1, 1))
     ax.imshow(img)
     ax.set_title(title_predict(uploaded_file)[0])
     plt.axis('off')
