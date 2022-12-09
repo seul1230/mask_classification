@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import requests
 
 
 # 마스크 착용 감지 모델
@@ -12,6 +13,19 @@ st.set_page_config(
     page_title="마스크 착용 감지 모델",
     page_icon="😷",
 )
+
+
+@st.cache
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+lottie_url = "hhttps://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
+lottie_json = load_lottieurl(lottie_url)
+st_lottie(lottie_json, speed=1, height=300, key="initial")
 
 st.header("""**오9오9**
 ***MINI project***  
