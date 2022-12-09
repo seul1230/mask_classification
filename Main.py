@@ -25,7 +25,7 @@ st.header("""오9오9
 st.title('😷 마스크 착용 감지 모델 🙂')
 
 # 모델 임포트
-model = tf.keras.models.load_model('acc_0.998_densenet121.h5')
+model = tf.keras.models.load_model('ResNet152V2_0.9659.h5')
 # model.summary()
 
 # 사진 입력받기
