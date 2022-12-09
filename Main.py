@@ -84,7 +84,10 @@ if uploaded_file is not None:
 
     fig, ax = plt.subplots(figsize=(1, 1))
     ax.imshow(img)
-    ax.titlesize(5)
-    ax.set_title(title_predict(uploaded_file)[0])
+    title_font = {
+        'fontsize': 16,
+        'fontweight': 'bold'
+    }
+    ax.title(title_predict(uploaded_file)[0], fontdict=title_font)
     plt.axis('off')
     st.pyplot(fig)
