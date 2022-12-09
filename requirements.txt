@@ -7,6 +7,5 @@ matplotlib
 requests
 streamlit_lottie
 streamlit_folium
-folium
 koreanize_matplotlib
 tensorflow
