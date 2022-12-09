@@ -1,8 +1,8 @@
 pandas
 numpy
 streamlit
-plotly
-seaborn
+# plotly
+# seaborn
 matplotlib
 requests
 streamlit_lottie
