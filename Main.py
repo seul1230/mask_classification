@@ -74,7 +74,8 @@ if uploaded_file is not None:
     # img = cv2.imread(uploaded_file)
     # png error 발생 -> keras의 image 이용
 
-    img = tf.keras.preprocessing.image.load_img(uploaded_file)
+    img = tf.keras.preprocessing.image.load_img(
+        uploaded_file, target_size=(height, width))
     fig, ax = plt.subplots(figsize=(3, 3))
     ax.imshow(img)
     ax.set_title(title_predict(uploaded_file)[0])
