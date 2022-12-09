@@ -36,6 +36,7 @@ height = 224
 width = 224
 
 
+@ st.cache
 def title_predict(path):
     img = tf.keras.preprocessing.image.load_img(
         path, target_size=(height, width))
