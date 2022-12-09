@@ -29,53 +29,54 @@ model = tf.keras.models.load_model('ResNet152V2_0.9659.h5')
 # model.summary()
 
 # 사진 입력받기
-uploaded_file = st.file_uploader("얼굴 사진을 올려주세요!", type=['png', 'jpg'])
+uploaded_file = st.file_uploader("얼굴 사진을 올려주세요!", type=['png', 'jpg', 'jpeg'])
 
 # 예측 및 결과 출력
 height = 224
 width = 224
 
-# def title_predict(path):
-#     img = tf.keras.preprocessing.image.load_img(
-#         path, target_size=(height, width))
-#     img = tf.keras.preprocessing.image.img_to_array(img)
-#     img = img / 255.0
-#     pred = model.predict(np.array([img]))
 
-#     if pred[0][0] > 0.5:
-#         return f'Without Mask : {pred[0][0]*100 : 0.2f}%', 0
-#     else:
-#         return f'With Mask : {(1-pred[0][0])*100 : 0.2f}%', 1
-
-
-def predict(path):
+def title_predict(path):
     img = tf.keras.preprocessing.image.load_img(
-        path, target_size=(height, width), interpolation='lanczos')
+        path, target_size=(height, width))
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = img / 255.0
     pred = model.predict(np.array([img]))
-    plt.imshow(img)
+
     if pred[0][0] > 0.5:
-        st.write('## 🙆‍♂️ 마스크를 착용하셨군요!')
-        plt.title(f'Without Mask : {pred[0][0]*100 : 0.2f}%')
+        return f'Without Mask : {pred[0][0]*100 : 0.2f}%', 0
     else:
-        st.write('## ❌ 마스크를 착용하지 않으셨군요!')
-        plt.title(f'With Mask : {(1-pred[0][0])*100 : 0.2f}%')
+        return f'With Mask : {(1-pred[0][0])*100 : 0.2f}%', 1
 
 
-# if uploaded_file is not None:
-#     if title_predict(uploaded_file)[1] == 1:
+# def predict(path):
+#     img = tf.keras.preprocessing.image.load_img(
+#         path, target_size=(height, width), interpolation='lanczos')
+#     img = tf.keras.preprocessing.image.img_to_array(img)
+#     img = img / 255.0
+#     pred = model.predict(np.array([img]))
+#     plt.imshow(img)
+#     if pred[0][0] > 0.5:
 #         st.write('## 🙆‍♂️ 마스크를 착용하셨군요!')
+#         plt.title(f'Without Mask : {pred[0][0]*100 : 0.2f}%')
 #     else:
 #         st.write('## ❌ 마스크를 착용하지 않으셨군요!')
+#         plt.title(f'With Mask : {(1-pred[0][0])*100 : 0.2f}%')
 
-#     # img = cv2.cvtColor(cv2.imread(uploaded_file),cv2.COLOR_BGR2RGB)
-#     # img = cv2.imread(uploaded_file)
-#     # png error 발생 -> keras의 image 이용
 
-#     img = tf.keras.preprocessing.image.load_img(uploaded_file)
-#     fig, ax = plt.subplots(figsize=(3, 3))
-#     ax.imshow(img)
-#     ax.set_title(title_predict(uploaded_file)[0])
-#     plt.axis('off')
-#     st.pyplot(fig)
+if uploaded_file is not None:
+    if title_predict(uploaded_file)[1] == 1:
+        st.write('## 🙆‍♂️ 마스크를 착용하셨군요!')
+    else:
+        st.write('## ❌ 마스크를 착용하지 않으셨군요!')
+
+    # img = cv2.cvtColor(cv2.imread(uploaded_file),cv2.COLOR_BGR2RGB)
+    # img = cv2.imread(uploaded_file)
+    # png error 발생 -> keras의 image 이용
+
+    img = tf.keras.preprocessing.image.load_img(uploaded_file)
+    fig, ax = plt.subplots(figsize=(3, 3))
+    ax.imshow(img)
+    ax.set_title(title_predict(uploaded_file)[0])
+    plt.axis('off')
+    st.pyplot(fig)
