@@ -4,7 +4,7 @@ import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import requests
-
+from streamlit_lottie import st_lottie
 
 # 마스크 착용 감지 모델
 # 기능 : 이용자로부터 얼굴 이미지를 입력받아, 모델을 통해 마스크를 썼는지 안 썼는지 감지 후 결과 출력
