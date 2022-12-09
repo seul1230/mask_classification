@@ -25,8 +25,15 @@ st.header("""오9오9
 st.title('😷 마스크 착용 감지 모델 🙂')
 
 # 모델 임포트
-model = tf.keras.models.load_model('ResNet152V2_0.9659.h5')
-# model.summary()
+
+
+@st.cache
+def load_model():
+    return tf.keras.models.load_model('ResNet152V2_0.9659.h5')
+
+
+model = load_model()
+
 
 # 사진 입력받기
 uploaded_file = st.file_uploader("얼굴 사진을 올려주세요!", type=['png', 'jpg', 'jpeg'])
@@ -85,7 +92,7 @@ if uploaded_file is not None:
     fig, ax = plt.subplots(figsize=(1, 1))
     ax.imshow(img)
     title_font = {
-        'fontsize': 16,
+        'fontsize': 5,
         'fontweight': 'bold'
     }
     ax.title(title_predict(uploaded_file)[0], fontdict=title_font)
