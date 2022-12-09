@@ -30,7 +30,7 @@ lottie_json = load_lottieurl(lottie_url)
 
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
-    (0.1, 2, 0.2, 1, 0.1)
+    (0.1, 1, 0.2, 2, 0.1)
 )
 
 with row0_1:
@@ -38,13 +38,14 @@ with row0_1:
 
 
 with row0_2:
-    st.header("""**오9오9**
+    st.header('오9오9')
+    st.write('''
     ***MINI project***  
     멋쟁이 사자처럼 AI SCHOOL 7기  
     권태윤, 김예지, 이정은, 임종우, 조예슬
 
     ---
-    """)
+    ''')
 
 
 # 제목
