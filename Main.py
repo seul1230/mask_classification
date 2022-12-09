@@ -13,7 +13,7 @@ st.set_page_config(
     page_icon="😷",
 )
 
-st.header("""오9오9  
+st.header("""**오9오9**
 ***MINI project***  
 멋쟁이 사자처럼 AI SCHOOL 7기  
 권태윤, 김예지, 이정은, 임종우, 조예슬
@@ -36,7 +36,8 @@ model = load_model()
 
 
 # 사진 입력받기
-uploaded_file = st.file_uploader("얼굴 사진을 올려주세요!", type=['png', 'jpg', 'jpeg'])
+uploaded_file = st.file_uploader(
+    "⬇️ 얼굴 사진을 올려주세요!", type=['png', 'jpg', 'jpeg'])
 
 # 예측 및 결과 출력
 height = 224
@@ -55,21 +56,6 @@ def title_predict(path):
         return f'Without Mask : {pred[0][0]*100 : 0.2f}%', 0
     else:
         return f'With Mask : {(1-pred[0][0])*100 : 0.2f}%', 1
-
-
-# def predict(path):
-#     img = tf.keras.preprocessing.image.load_img(
-#         path, target_size=(height, width), interpolation='lanczos')
-#     img = tf.keras.preprocessing.image.img_to_array(img)
-#     img = img / 255.0
-#     pred = model.predict(np.array([img]))
-#     plt.imshow(img)
-#     if pred[0][0] > 0.5:
-#         st.write('## 🙆‍♂️ 마스크를 착용하셨군요!')
-#         plt.title(f'Without Mask : {pred[0][0]*100 : 0.2f}%')
-#     else:
-#         st.write('## ❌ 마스크를 착용하지 않으셨군요!')
-#         plt.title(f'With Mask : {(1-pred[0][0])*100 : 0.2f}%')
 
 
 if uploaded_file is not None:
