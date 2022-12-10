@@ -27,14 +27,14 @@ lottie_url = "https://assets8.lottiefiles.com/packages/lf20_5q3dohib.json"
 # "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
 
 lottie_json = load_lottieurl(lottie_url)
-
+st_lottie(lottie_json, speed=1, height=200, key="initial")
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
     (0.1, 1, 0.2, 2, 0.1)
 )
 
 with row0_1:
-    st_lottie(lottie_json, speed=1, height=200, key="initial")
+    st.title('Mask or No Mask ?')
 
 
 with row0_2:
@@ -43,13 +43,12 @@ with row0_2:
     ***MINI project***  
     멋쟁이 사자처럼 AI SCHOOL 7기  
     권태윤, 김예지, 이정은, 임종우, 조예슬
-
     ''')
 
 st.write('---')
 
 # 제목
-st.header('😷 마스크 착용 감지 모델 🙂')
+# st.header('😷 마스크 착용 감지 모델 🙂')
 
 # 모델 임포트
 
