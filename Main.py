@@ -31,8 +31,11 @@ lottie_url = "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
 lottie_json = load_lottieurl(lottie_url)
 st_lottie(lottie_json, speed=1, height=200, key="initial")
 
+st.write('')
+st.write('')
+
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
-    (0.01, 1.5, 0.1, 1, 0.01)
+    (0.01, 1.7, 0.05, 1, 0.01)
 )
 
 with row0_1:
