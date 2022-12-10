@@ -23,7 +23,8 @@ def load_lottieurl(url: str):
     return r.json()
 
 
-lottie_url = "https://assets8.lottiefiles.com/packages/lf20_uidhg9jw.json"
+lottie_url = "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
+# "https://assets8.lottiefiles.com/packages/lf20_uidhg9jw.json"
 # "https://assets8.lottiefiles.com/packages/lf20_5q3dohib.json"
 # "https://assets6.lottiefiles.com/private_files/lf30_kbjokjdo.json"
 
@@ -31,7 +32,7 @@ lottie_json = load_lottieurl(lottie_url)
 st_lottie(lottie_json, speed=1, height=200, key="initial")
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
-    (0.1, 1.5, 0.2, 1, 0.1)
+    (0.01, 1.5, 0.1, 1, 0.01)
 )
 
 with row0_1:
