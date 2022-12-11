@@ -16,7 +16,7 @@ st.set_page_config(
 
 
 # @st.cache
-@st.experimental_singleton
+@st.experimental_memo
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
