@@ -58,8 +58,6 @@ st.write('---')
 # st.header('😷 마스크 착용 감지 모델 🙂')
 
 # 모델 임포트
-
-
 # @st.cache(allow_output_mutation=True)
 def load_model():
     return tf.keras.models.load_model('ResNet152V2_0.9659.h5')
